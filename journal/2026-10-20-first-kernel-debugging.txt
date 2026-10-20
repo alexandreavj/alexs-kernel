@@ -1,0 +1,236 @@
+Script started on 2026-10-20 13:01:52+01:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="178" LINES="42"]
+]666;vte.shell.postexec=0\]7;file://alexs-ubuntu/home/alexandrejacob/Documents/alexs-kernel\]0;alexandrejacob@alexs-ubuntu:~/Documents/alexs-kernel\]666;vte.shell.precmd!\[?2004h]0;alexandrejacob@alexs-ubuntu: ~/Documents/alexs-kernel[01;32malexandrejacob@alexs-ubuntu[00m:[01;34m~/Documents/alexs-kernel[00m$ ./run.sh 
+[?2004l]133;C\]666;vte.shell.preexec!\+ QEMU=qemu-system-riscv32
++ CC=clang
++ CFLAGS='-std=c11 -O2 -g3 -Wall -Wextra --target=riscv32-unknown-elf -fuse-ld=lld -fno-stack-protector -ffreestanding -nostdlib'
++ clang -std=c11 -O2 -g3 -Wall -Wextra --target=riscv32-unknown-elf -fuse-ld=lld -fno-stack-protector -ffreestanding -nostdlib -Wl,-Tkernel.ld -Wl,-Map=kernel.map -o kernel.elf kernel.c
++ qemu-system-riscv32 -machine virt -bios default -nographic -serial mon:stdio --no-reboot -kernel kernel.elf
+
+OpenSBI v1.2
+   ____                    _____ ____ _____
+  / __ \                  / ____|  _ \_   _|
+ | |  | |_ __   ___ _ __ | (___ | |_) || |
+ | |  | | '_ \ / _ \ '_ \ \___ \|  _ < | |
+ | |__| | |_) |  __/ | | |____) | |_) || |_
+  \____/| .__/ \___|_| |_|_____/|____/_____|
+        | |
+        |_|
+
+Platform Name             : riscv-virtio,qemu
+Platform Features         : medeleg
+Platform HART Count       : 1
+Platform IPI Device       : aclint-mswi
+Platform Timer Device     : aclint-mtimer @ 10000000Hz
+Platform Console Device   : uart8250
+Platform HSM Device       : ---
+Platform PMU Device       : ---
+Platform Reboot Device    : sifive_test
+Platform Shutdown Device  : sifive_test
+Firmware Base             : 0x80000000
+Firmware Size             : 208 KB
+Runtime SBI Version       : 1.0
+
+Domain0 Name              : root
+Domain0 Boot HART         : 0
+Domain0 HARTs             : 0*
+Domain0 Region00          : 0x02000000-0x0200ffff (I)
+Domain0 Region01          : 0x80000000-0x8003ffff ()
+Domain0 Region02          : 0x00000000-0xffffffff (R,W,X)
+Domain0 Next Address      : 0x80200000
+Domain0 Next Arg1         : 0x87e00000
+Domain0 Next Mode         : S-mode
+Domain0 SysReset          : yes
+
+Boot HART ID              : 0
+Boot HART Domain          : root
+Boot HART Priv Version    : v1.12
+Boot HART Base ISA        : rv32imafdch
+Boot HART ISA Extensions  : time,sstc
+Boot HART PMP Count       : 16
+Boot HART PMP Granularity : 4
+Boot HART PMP Address Bits: 32
+Boot HART MHPM Count      : 16
+Boot HART MIDELEG         : 0x00001666
+Boot HART MEDELEG         : 0x00f0b509
+QEMU 10.2.1 monitor - type 'help' for more information
+(qemu) i[K[Din[K[D[Dinf[K[D[D[Dinfo[K[D[D[D[Dinfo [K[D[D[D[D[Dinfo r[K[D[D[D[D[D[Dinfo re[K[D[D[D[D[D[D[Dinfo reg[K[D[D[D[D[D[D[D[Dinfo regi[K[D[D[D[D[D[D[D[D[Dinfo regis[K[D[D[D[D[D[D[D[D[D[Dinfo regist[K[D[D[D[D[D[D[D[D[D[D[Dinfo registe[K[D[D[D[D[D[D[D[D[D[D[D[Dinfo register[K[D[D[D[D[D[D[D[D[D[D[D[D[Dinfo registers[K
+
+CPU#0
+ V      =   0
+ pc       80200048
+ mhartid  00000000
+ mstatus  80006080
+ mstatush 00000000
+ hstatus  00000000
+ vsstatus 00000000
+ mip      00000020
+ mie      00000008
+ mideleg  00001666
+ hideleg  00000000
+ medeleg  00f0b509
+ hedeleg  00000000
+ mtvec    80000530
+ stvec    80200000
+ vstvec   00000000
+ mepc     80200000
+ sepc     00000000
+ vsepc    00000000
+ mcause   00000003
+ scause   00000000
+ vscause  00000000
+ mtval    8000c274
+ stval    00000000
+ htval    00000000
+ mtval2   00000000
+ mscratch 80033000
+ sscratch 00000000
+ satp     00000000
+ x0/zero  00000000 x1/ra    8000a084 x2/sp    8022004c x3/gp    00000000
+ x4/tp    80033000 x5/t0    00000001 x6/t1    00000002 x7/t2    00000000
+ x8/s0    80032f50 x9/s1    00000001 x10/a0   8020004c x11/a1   8020004c
+ x12/a2   00000000 x13/a3   00000019 x14/a4   00000000 x15/a5   00000001
+ x16/a6   00000001 x17/a7   00000005 x18/s2   80200000 x19/s3   00000000
+ x20/s4   87e00000 x21/s5   00000000 x22/s6   80006800 x23/s7   8001c020
+ x24/s8   00002000 x25/s9   8002b4e4 x26/s10  00000000 x27/s11  00000000
+ x28/t3   616d6569 x29/t4   8001a5a1 x30/t5   00000038 x31/t6   00000000
+ fcsr     00000000
+ f0/ft0   ffffffff00000000 f1/ft1   ffffffff00000000 f2/ft2   ffffffff00000000 f3/ft3   ffffffff00000000
+ f4/ft4   ffffffff00000000 f5/ft5   ffffffff00000000 f6/ft6   ffffffff00000000 f7/ft7   ffffffff00000000
+ f8/fs0   ffffffff00000000 f9/fs1   ffffffff00000000 f10/fa0  ffffffff00000000 f11/fa1  ffffffff00000000
+ f12/fa2  ffffffff00000000 f13/fa3  ffffffff00000000 f14/fa4  ffffffff00000000 f15/fa5  ffffffff00000000
+ f16/fa6  ffffffff00000000 f17/fa7  ffffffff00000000 f18/fs2  ffffffff00000000 f19/fs3  ffffffff00000000
+ f20/fs4  ffffffff00000000 f21/fs5  ffffffff00000000 f22/fs6  ffffffff00000000 f23/fs7  ffffffff00000000
+ f24/fs8  ffffffff00000000 f25/fs9  ffffffff00000000 f26/fs10 ffffffff00000000 f27/fs11 ffffffff00000000
+ f28/ft8  ffffffff00000000 f29/ft9  ffffffff00000000 f30/ft10 ffffffff00000000 f31/ft11 ffffffff00000000
+(qemu) q[K
+]666;vte.shell.postexec=0\]7;file://alexs-ubuntu/home/alexandrejacob/Documents/alexs-kernel\]0;alexandrejacob@alexs-ubuntu:~/Documents/alexs-kernel\]666;vte.shell.precmd!\[?2004h]0;alexandrejacob@alexs-ubuntu: ~/Documents/alexs-kernel[01;32malexandrejacob@alexs-ubuntu[00m:[01;34m~/Documents/alexs-kernel[00m$ [7mllvm-objdump -d kernel.elf[27mllvm-objdump -d kernel.elf
+[?2004l]133;C\]666;vte.shell.preexec!\
+kernel.elf:	file format elf32-littleriscv
+
+Disassembly of section .text:
+
+80200000 <boot>:
+80200000: 80220537     	lui	[0;36ma0[0m, [0;31m0x80220[0m
+80200004: 04c50513     	addi	[0;36ma0[0m, [0;36ma0[0m, [0;31m0x4c[0m
+80200008: 812a         	mv	[0;36msp[0m, [0;36ma0[0m
+8020000a: 01a0006f     	j	[0;33m0x80200024[0m <kernel_main>
+
+8020000e <memset>:
+8020000e: ca11         	beqz	[0;36ma2[0m, [0;33m0x80200022[0m <memset+0x14>
+80200010: 962a         	add	[0;36ma2[0m, [0;36ma2[0m, [0;36ma0[0m
+80200012: 86aa         	mv	[0;36ma3[0m, [0;36ma0[0m
+80200014: 00168713     	addi	[0;36ma4[0m, [0;36ma3[0m, [0;31m0x1[0m
+80200018: 00b68023     	sb	[0;36ma1[0m, [0;31m0x0[0m([0;36ma3[0m)
+8020001c: 86ba         	mv	[0;36ma3[0m, [0;36ma4[0m
+8020001e: fec71be3     	bne	[0;36ma4[0m, [0;36ma2[0m, [0;33m0x80200014[0m <memset+0x6>
+80200022: 8082         	ret
+
+80200024 <kernel_main>:
+80200024: 802005b7     	lui	[0;36ma1[0m, [0;31m0x80200[0m
+80200028: 04c58593     	addi	[0;36ma1[0m, [0;36ma1[0m, [0;31m0x4c[0m
+8020002c: 80200537     	lui	[0;36ma0[0m, [0;31m0x80200[0m
+80200030: 04c50513     	addi	[0;36ma0[0m, [0;36ma0[0m, [0;31m0x4c[0m
+80200034: 40b50633     	sub	[0;36ma2[0m, [0;36ma0[0m, [0;36ma1[0m
+80200038: ca01         	beqz	[0;36ma2[0m, [0;33m0x80200048[0m <kernel_main+0x24>
+8020003a: 00158613     	addi	[0;36ma2[0m, [0;36ma1[0m, [0;31m0x1[0m
+8020003e: 00058023     	sb	[0;36mzero[0m, [0;31m0x0[0m([0;36ma1[0m)
+80200042: 85b2         	mv	[0;36ma1[0m, [0;36ma2[0m
+80200044: fea61be3     	bne	[0;36ma2[0m, [0;36ma0[0m, [0;33m0x8020003a[0m <kernel_main+0x16>
+80200048: a001         	j	[0;33m0x80200048[0m <kernel_main+0x24>
+]666;vte.shell.postexec=0\]7;file://alexs-ubuntu/home/alexandrejacob/Documents/alexs-kernel\]0;alexandrejacob@alexs-ubuntu:~/Documents/alexs-kernel\]666;vte.shell.precmd!\[?2004h]0;alexandrejacob@alexs-ubuntu: ~/Documents/alexs-kernel[01;32malexandrejacob@alexs-ubuntu[00m:[01;34m~/Documents/alexs-kernel[00m$ cat kernel.map 
+[?2004l]133;C\]666;vte.shell.preexec!\     VMA      LMA     Size Align Out     In      Symbol
+       0        0 80200000     1 . = 0x80200000
+80200000 80200000       4a     2 .text
+80200000 80200000        e     2         /tmp/kernel-12b4e6.o:(.text.boot)
+80200000 80200000        0     1                 .L0 
+80200000 80200000        0     1                 .L0 
+80200000 80200000        0     1                 $x
+80200000 80200000        0     1                 .L0 
+80200000 80200000        e     1                 boot
+8020000e 8020000e        0     1                 .L0 
+8020000e 8020000e        0     1                 .L0 
+8020000e 8020000e       3c     2         /tmp/kernel-12b4e6.o:(.text)
+8020000e 8020000e        0     1                 .L0 
+8020000e 8020000e        0     1                 .L0 
+8020000e 8020000e        0     1                 $x
+8020000e 8020000e        0     1                 .L0 
+8020000e 8020000e       16     1                 memset
+80200012 80200012        0     1                 .L0 
+8020001e 8020001e        0     1                 .L0 
+80200022 80200022        0     1                 .L0 
+80200024 80200024        0     1                 .L0 
+80200024 80200024        0     1                 .L0 
+80200024 80200024        0     1                 .L0 
+80200024 80200024       26     1                 kernel_main
+8020002c 8020002c        0     1                 .L0 
+80200038 80200038        0     1                 .L0 
+8020003a 8020003a        0     1                 .L0 
+8020003a 8020003a        0     1                 .L0 
+8020003e 8020003e        0     1                 .L0 
+80200044 80200044        0     1                 .L0 
+80200044 80200044        0     1                 .L0 
+80200048 80200048        0     1                 .L0 
+80200048 80200048        0     1                 .L0 
+8020004a 8020004a        0     1                 .L0 
+8020004a 8020004a        0     1                 .L0 
+8020004c 8020004c        0     4 .bss
+8020004c 8020004c        0     1         __bss = .
+8020004c 8020004c        0     1         __bss_end = .
+8020004c 8020004c        0     1 . = ALIGN(4)
+8020004c 8020004c    20000     1 . += 128 * 1024
+8022004c 8022004c        0     1 __stack_top = .
+       0        0       63     1 .debug_loclists
+       0        0       63     1         /tmp/kernel-12b4e6.o:(.debug_loclists)
+       0        0        0     1                 $d
+       c        c        0     1                 .L0 
+       0        0       e1     1 .debug_abbrev
+       0        0       e1     1         /tmp/kernel-12b4e6.o:(.debug_abbrev)
+       0        0        0     1                 $d
+       0        0       df     1 .debug_info
+       0        0       df     1         /tmp/kernel-12b4e6.o:(.debug_info)
+       0        0        0     1                 $d
+       0        0       17     1 .debug_rnglists
+       0        0       17     1         /tmp/kernel-12b4e6.o:(.debug_rnglists)
+       0        0        0     1                 $d
+       c        c        0     1                 .L0 
+       0        0       44     1 .debug_str_offsets
+       0        0       44     1         /tmp/kernel-12b4e6.o:(.debug_str_offsets)
+       0        0        0     1                 $d
+       8        8        0     1                 .L0 
+       0        0       b1     1 .debug_str
+       0        0       b1     1         <internal>:(.debug_str)
+       0        0       14     1 .debug_addr
+       0        0       14     1         /tmp/kernel-12b4e6.o:(.debug_addr)
+       0        0        0     1                 $d
+       8        8        0     1                 .L0 
+       0        0       42     1 .comment
+       0        0       42     1         <internal>:(.comment)
+       0        0       4e     1 .riscv.attributes
+       0        0       4e     1         <internal>:(.riscv.attributes)
+       0        0       44     4 .debug_frame
+       0        0       44     4         /tmp/kernel-12b4e6.o:(.debug_frame)
+       0        0        0     1                 .L0 
+       0        0        0     1                 $d
+       0        0       a9     1 .debug_line
+       0        0       a9     1         /tmp/kernel-12b4e6.o:(.debug_line)
+       0        0        0     1                 .Lline_table_start0
+       0        0        0     1                 $d
+       0        0       35     1 .debug_line_str
+       0        0       35     1         <internal>:(.debug_line_str)
+       0        0      160     4 .symtab
+       0        0      160     4         <internal>:(.symtab)
+       0        0       ce     1 .shstrtab
+       0        0       ce     1         <internal>:(.shstrtab)
+       0        0       68     1 .strtab
+       0        0       68     1         <internal>:(.strtab)
+]666;vte.shell.postexec=0\]7;file://alexs-ubuntu/home/alexandrejacob/Documents/alexs-kernel\]0;alexandrejacob@alexs-ubuntu:~/Documents/alexs-kernel\]666;vte.shell.precmd!\[?2004h]0;alexandrejacob@alexs-ubuntu: ~/Documents/alexs-kernel[01;32malexandrejacob@alexs-ubuntu[00m:[01;34m~/Documents/alexs-kernel[00m$ [7mllvm-nm kernel.elf[27mllvm-nm kernel.elf
+[?2004l]133;C\]666;vte.shell.preexec!\8020004c B __bss
+8020004c B __bss_end
+8022004c B __stack_top
+80200000 T boot
+80200024 T kernel_main
+8020000e T memset
+]666;vte.shell.postexec=0\]7;file://alexs-ubuntu/home/alexandrejacob/Documents/alexs-kernel\]0;alexandrejacob@alexs-ubuntu:~/Documents/alexs-kernel\]666;vte.shell.precmd!\[?2004h]0;alexandrejacob@alexs-ubuntu: ~/Documents/alexs-kernel[01;32malexandrejacob@alexs-ubuntu[00m:[01;34m~/Documents/alexs-kernel[00m$ exit
+[?2004l]133;C\]666;vte.shell.preexec!\exit
+
+Script done on 2026-10-20 13:03:08+01:00 [COMMAND_EXIT_CODE="0"]
