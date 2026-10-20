@@ -65,6 +65,10 @@ extern uint8_t __bss[], __bss_end[], __stack_top[];
  *
  * Rule of thumb: for linker symbols, declare them as arrays and use
  * the name as the address.
+ *
+ * === __bss[] vs *__bss
+ * extern char  __bss[];   // "an array of chars starts at 0x80201000"
+ * extern char *__bss;     // "a variable at 0x80201000 holds a pointer"
  */
 
 
